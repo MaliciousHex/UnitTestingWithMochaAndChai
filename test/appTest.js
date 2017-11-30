@@ -1,11 +1,38 @@
 const assert = require('chai').assert;
-const sayHello = require('../app').sayHello;
-// const app = require('../app');
+// const sayHello = require('../app').sayHello;
+// const addNumbers = require('../app').addNumbers;
+const app = require('../app');
+
+// Hasil
+sayHelloResult = app.sayHello();
+addNumbersResult = app.addNumbers(5,5);
 
 describe('App',function(){
-	it('sayHelo should return hello',function(){
-		let result = sayHello();
-		assert.equal(result,'hello');
+	describe('sayHello()',function(){
+		it('sayHelo should return hello',function(){
+			// let result = app.sayHello();
+			assert.equal(sayHelloResult,'hello');
+		});
+
+		it('sayHello should return type string',function(){
+			// let result = app.sayHello();
+			assert.typeOf(sayHelloResult,'string');
+		});
 	});
 	
+
+	describe('addNumbers()',function(){
+		it('Add Numbers should be above 5',function(){
+			// let result = app.addNumbers(5,5);
+			assert.isAbove(addNumbersResult,5);
+		});
+
+		it('Add Numbers should return type number',function(){
+			// let result = app.addNumbers(5,5);
+			assert.typeOf(addNumbersResult,'number');
+		});
+
+	});
+	
+
 });
